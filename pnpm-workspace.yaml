@@ -1,3 +1,9 @@
 allowBuilds:
+  protobufjs: false
   sharp: false
   unrs-resolver: false
+publicHoistPattern:
+  - '*prettier*'
+  - '*eslint*'
+  - '@commitlint/*'
+  - commit-and-tag-version

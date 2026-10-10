@@ -2,6 +2,7 @@
   "name": "athletic-feeds",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -14,6 +15,9 @@
     "react-dom": "19.3.0"
   },
   "devDependencies": {
+    "@battis/commit": "^0.0.10",
+    "@battis/eslint": "^3.0.7",
+    "@battis/prettier": "^2.0.11",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
