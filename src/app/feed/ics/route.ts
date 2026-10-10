@@ -18,7 +18,7 @@ export async function GET() {
       description:
         report.summary ||
         report.event.google_map
-          ?.replaceAll(/(\r|\n)+/, ', ')
+          ?.replaceAll(/(\r|\n)+/g, ', ')
           .replaceAll(/\s+/g, '+') ||
         '',
       location:
