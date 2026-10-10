@@ -8,6 +8,7 @@ import RSS from 'rss';
 
 /*
  * TODO investigate Next.js caching of RSS feed
+ Issue URL: https://github.com/groton-school/veracross-athletic-feeds/issues/2
  *   Naive use failed compilation, likely due to cache data serialization.
  */
 

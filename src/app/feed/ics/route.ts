@@ -8,6 +8,7 @@ import { NextResponse } from 'next/server';
 
 /*
  * TODO investigate Next.js caching of ICS feed
+ Issue URL: https://github.com/groton-school/veracross-athletic-feeds/issues/1
  *   Naive use failed compilation, likely due to cache data serialization.
  */
 
