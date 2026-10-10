@@ -1,7 +1,8 @@
 {
   "name": "@groton/veracross-athletic-feeds",
   "version": "0.0.0",
-  "private": true,
+  "private": "true",
+  "description": "ICS and RSS feeds for athletic events from Veracross",
   "license": "GPL-3.0-only",
   "type": "module",
   "scripts": {
