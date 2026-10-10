@@ -20,7 +20,10 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@battis/lazy-secrets": "^1.1.2",
+    "@groton/veracross-api": "^0.0.13",
     "next": "16.4.0",
+    "openid-client": "^6.8.8",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
