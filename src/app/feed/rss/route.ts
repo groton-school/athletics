@@ -6,6 +6,11 @@ import { DateTime, Interval } from 'luxon';
 import { NextResponse } from 'next/server';
 import RSS from 'rss';
 
+/*
+ * TODO investigate Next.js caching of RSS feed
+ *   Naive use failed compilation, likely due to cache data serialization.
+ */
+
 const CACHE_LIFETIME = 15; // minutes
 
 let timestamp = DateTime.now();

@@ -6,6 +6,11 @@ import ics from 'ics';
 import { DateTime, Interval } from 'luxon';
 import { NextResponse } from 'next/server';
 
+/*
+ * TODO investigate Next.js caching of ICS feed
+ *   Naive use failed compilation, likely due to cache data serialization.
+ */
+
 const CACHE_LIFETIME = 15; // minutes
 
 let timestamp = DateTime.now();
