@@ -17,16 +17,18 @@ export async function GET() {
       end: toISODateTime(report.event.end_date, report.event.end_time),
       description:
         report.summary ||
-        report.event.google_map?.replaceAll(/(\r|\n|\s)+/g, '+') ||
+        report.event.google_map
+          ?.replaceAll(/(\r|\n)+/, ', ')
+          .replaceAll(/\s+/g, '+') ||
         '',
       location:
         report.event.event_type_id === 1
           ? 'Groton School, 282 Farmers Row, Groton, MA 01450'
           : `${report.event.destination_organization}${
               report.event.google_map
-                ? `, ${report.event.google_map.replace(
-                    'http://maps.google.com/maps?q=',
-                    ''
+                ? `\n${report.event.google_map.replace(
+                    /http:\/\/maps\.google\.com\/maps?q=(.*)&hl=en/,
+                    '$1'
                   )}`
                 : ''
             }`
