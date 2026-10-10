@@ -22,6 +22,7 @@
   "dependencies": {
     "@battis/lazy-secrets": "^1.1.2",
     "@groton/veracross-api": "^0.0.13",
+    "ics": "^3.12.1",
     "luxon": "^3.7.2",
     "next": "16.4.0",
     "openid-client": "^6.8.8",
