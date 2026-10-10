@@ -117,9 +117,16 @@ export class TokenManager implements Client.TokenStore {
       );
     }
     if (!this.tokens) {
-      throw new Error('No refresh token received');
-    } else {
+      throw new Error('No stored refresh token');
+    } else if (this.tokens.expiresIn()) {
       return this.tokens;
+    } else {
+      const t = await this.refresh(this.tokens.refresh_token);
+      if (t) {
+        return t;
+      } else {
+        throw new Error('Could not refresh access token');
+      }
     }
   }
 
