@@ -37,7 +37,3 @@ repos:
     rev: v1.0.1
     hooks:
       - id: check-console-log
-  - repo: https://github.com/borisbabic/pre-commit-php
-    sha: 2.0.0
-    hooks:
-      - id: php-no-var_dumps
