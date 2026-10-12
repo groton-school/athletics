@@ -1,6 +1,6 @@
 'use server';
 
-import { Veracross } from '#lib/Veracross';
+import { Veracross } from '@/lib/Veracross';
 import z from 'zod';
 import { zfd } from 'zod-form-data';
 

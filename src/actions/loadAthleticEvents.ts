@@ -1,6 +1,6 @@
 'use server';
 
-import { Veracross } from '#lib/Veracross';
+import { Veracross } from '@/lib/Veracross';
 import z from 'zod';
 
 const schema = z.coerce.number().int().gt(0);

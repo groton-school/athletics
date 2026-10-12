@@ -1,7 +1,7 @@
-import { loadAthleticEvents } from '#actions/loadAthleticEvents';
-import { Event } from '#components/Event';
-import { Loading } from '#components/Loading';
-import { LocaleDateTime } from '#components/LocaleDateTime';
+import { loadAthleticEvents } from '@/actions/loadAthleticEvents';
+import { Event } from '@/components/Event';
+import { Loading } from '@/components/Loading';
+import { LocaleDateTime } from '@/components/LocaleDateTime';
 import { connection } from 'next/server';
 import { Suspense } from 'react';
 import { Container, Table } from 'react-bootstrap';

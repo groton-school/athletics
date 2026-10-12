@@ -1,5 +1,5 @@
-import { Loading } from '#components/Loading';
-import { Veracross } from '#lib/Veracross';
+import { Loading } from '@/components/Loading';
+import { Veracross } from '@/lib/Veracross';
 import Link from 'next/link';
 import { connection } from 'next/server';
 import { Suspense } from 'react';

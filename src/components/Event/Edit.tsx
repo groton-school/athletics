@@ -1,6 +1,6 @@
 'use client';
 
-import { updateAthleticScore } from '#actions/updateAthleticScore';
+import { updateAthleticScore } from '@/actions/updateAthleticScore';
 import { useActionState } from 'react';
 import { Button, Col, FloatingLabel, Form, Row } from 'react-bootstrap';
 import { Properties } from './Properties';
