@@ -15,6 +15,8 @@ export async function run() {
     env: true,
     args: {
       ...gcloud.batch.run.DEFAULT_ARGS,
+      'max-instances': 1,
+      concurrency: 80,
       'set-env-vars': [
         ['GOOGLE_CLOUD_PROJECT', gcloud.projects.active.getIdentifier()],
         ...(await Promise.all(
