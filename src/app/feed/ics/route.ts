@@ -4,6 +4,7 @@ import { currentAcademicYear } from '@/lib/currentAcademicYear';
 import { toISODateTime } from '@/lib/toISODateTime';
 import ics from 'ics';
 import { DateTime, Interval } from 'luxon';
+import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 
 /*
@@ -62,5 +63,9 @@ export async function GET() {
       throw new Error('No calendar data rendered');
     }
   }
-  return new NextResponse(new Blob([cached], { type: 'text/calendar' }));
+  return new NextResponse(new Blob([cached], { type: 'text/calendar' }), {
+    headers: {
+      'Content-Disposition': 'attachment; filename="Groton Athletics.ics"'
+    }
+  });
 }
