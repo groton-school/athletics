@@ -25,7 +25,9 @@ export async function toGameReport(
   return {
     event,
     title: `${
-      !/^[A-Z\-]+:/.test(event.description) ? `${event.description}: ` : ''
+      event.description && !/^[A-Z0-9\-]+:/.test(event.description)
+        ? `${event.description}: `
+        : ''
     }${event.team_description.replace(/^([^:]+: )(.*)$/, '$2')} ${
       event.home_away_id === 1
         ? 'vs.'
