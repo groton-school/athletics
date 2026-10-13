@@ -10,6 +10,7 @@ interface GameReport {
 }
 
 // TODO Track & Field _does_ use decimal points for scores
+// Issue URL: https://github.com/groton-school/veracross-athletic-feeds/issues/3
 export async function toGameReport(
   event: Veracross.Data.Events.Athletics.Athletics
 ): Promise<GameReport> {
