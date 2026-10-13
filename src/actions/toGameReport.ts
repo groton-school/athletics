@@ -9,6 +9,7 @@ interface GameReport {
   summary?: string;
 }
 
+// TODO Track & Field _does_ use decimal points for scores
 export async function toGameReport(
   event: Veracross.Data.Events.Athletics.Athletics
 ): Promise<GameReport> {
