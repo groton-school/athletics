@@ -1,17 +1,19 @@
 'use client';
 
-type Properties = { date: string; time?: string };
+type ComponentProps = { date: string; time?: string };
 
-export function LocaleDateTime({ date, time }: Properties) {
+export function LocaleDateTime({ date, time }: ComponentProps) {
   return (
     <>
-      {new Date(`${date} ${time || ''}`).toLocaleString('en-us', {
-        month: 'short',
-        weekday: 'short',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: '2-digit'
-      })}
+      {new Date(`${date} ${time || ''}`)
+        .toLocaleString('en-us', {
+          month: 'short',
+          weekday: 'short',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: '2-digit'
+        })
+        .replaceAll(/\s/g, ' ')}
     </>
   );
 }

@@ -3,6 +3,7 @@
 import { Veracross } from '@/lib/Veracross';
 import z from 'zod';
 import { zfd } from 'zod-form-data';
+import { Report } from './getReport';
 
 const schema = zfd
   .formData({
@@ -19,18 +20,18 @@ const schema = zfd
     )
   );
 
-export async function updateAthleticScore(
-  event_id: number,
+export async function updateReport(
+  report: Report,
   state: unknown,
   data: z.input<typeof schema>
 ) {
-  console.log({ event_id, state, data });
+  console.log({ event_id: report.event.id, state, data });
   const validate = schema.safeParse(data);
   console.log({ validate });
   if (validate.success) {
     try {
       await Veracross.Data.Events.AthleticsScores.update({
-        id: event_id,
+        id: report.event.id,
         data: validate.data
       });
       return { success: true };

@@ -1,4 +1,4 @@
-import { Bootstrap } from '#components/Bootstrap';
+import { Bootstrap } from '@/components/Bootstrap';
 import type { Metadata } from 'next';
 import { Container } from 'react-bootstrap';
 
@@ -14,12 +14,13 @@ type Slots = Readonly<{
   modal?: React.ReactNode;
 }>;
 
-export default async function RootLayout({ children }: Slots) {
+export default async function RootLayout({ children, modal }: Slots) {
   return (
     <html lang="en">
       <body>
         <Container className="mt-3">{children}</Container>
         <Bootstrap />
+        {modal}
       </body>
     </html>
   );

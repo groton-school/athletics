@@ -1,48 +1,22 @@
-import { Loading } from '@/components/Loading';
-import { Veracross } from '@/lib/Veracross';
-import Link from 'next/link';
-import { connection } from 'next/server';
+import { Centered } from '@/components/Centered';
+import * as Teams from '@/components/Teams';
 import { Suspense } from 'react';
-import { Container } from 'react-bootstrap';
+import { Image, TabContent } from 'react-bootstrap';
 
-type PathParameters = { coach_id: string };
-type Properties = { params: Promise<PathParameters> };
-
-export default function Page(props: Properties) {
+export default function Page(props: PageProps<'/coaches/[coach_id]'>) {
   return (
-    <Suspense fallback={<Loading caption="Loading teams…" />}>
-      <DynamicContent {...props} />
-    </Suspense>
-  );
-}
-
-async function DynamicContent({ params }: Properties) {
-  await connection();
-
-  const school_year =
-    new Date().getMonth() < 6
-      ? new Date().getFullYear() - 1
-      : new Date().getFullYear();
-
-  const coach_id = parseInt((await params).coach_id);
-
-  const teams = await Promise.all(
-    await Veracross.Data.Athletics.Coaches.list({
-      query: { coach_id, school_year }
-    })
-  );
-
-  return (
-    <Container>
-      <ul>
-        {teams.map((team) => (
-          <li>
-            <Link href={{ pathname: `/teams/${team.internal_team_id}` }}>
-              {team.team_description}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </Container>
+    <>
+      <Suspense fallback={<Teams.Skeleton />}>
+        <Teams.Loader {...props} />
+      </Suspense>
+      <TabContent>
+        <Centered>
+          <Image
+            src="/assets/Groton_zebra_type_2c.png"
+            style={{ height: '20vh' }}
+          />
+        </Centered>
+      </TabContent>
+    </>
   );
 }
