@@ -54,12 +54,16 @@ export async function Collection({
             <td>
               No events scheduled
               <Button
-                className="ms-3 me-3"
+                className="ms-3"
                 target="Axiom"
                 href={`https://axiom.veracross.com/groton/#/detail/team/${internal_team_id}/-561-all-events`}
                 variant="light"
               >
-                <Image src="/assets/veracross.svg" style={{ height: '1em' }} />
+                <Image
+                  className="me-3"
+                  src="/assets/veracross.svg"
+                  style={{ height: '1em' }}
+                />
                 Edit in Axiom
               </Button>
             </td>
