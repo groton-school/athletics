@@ -1,9 +1,11 @@
+'use server';
+
 import { Centered } from '@/components/Centered';
 import * as Teams from '@/components/Teams';
 import { Suspense } from 'react';
 import { Image, TabContent } from 'react-bootstrap';
 
-export default function Page(props: PageProps<'/coaches/[coach_id]'>) {
+export default async function Page(props: PageProps<'/coaches/[coach_id]'>) {
   return (
     <>
       <Suspense fallback={<Teams.Skeleton />}>

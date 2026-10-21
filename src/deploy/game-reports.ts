@@ -17,10 +17,16 @@ export async function run() {
       ...gcloud.batch.run.DEFAULT_ARGS,
       'max-instances': 1,
       concurrency: 80,
+      'allow-unauthenticated': true,
+      'update-secrets': ['AUTH_GOOGLE_ID', 'AUTH_GOOGLE_SECRET']
+        .map((secret) => `${secret}=${secret}:latest`)
+        .join(','),
       'set-env-vars': [
         ['GOOGLE_CLOUD_PROJECT', gcloud.projects.active.getIdentifier()],
         ...(await Promise.all(
-          ['PUBLIC_URL'].map(async (key) => [key, await Env.get({ key })])
+          [/*'PUBLIC_URL',*/ 'AUTH_URL', 'AUTH_SECRET', 'AUTH_TRUST_HOST'].map(
+            async (key) => [key, await Env.get({ key })]
+          )
         ))
       ]
         .map(([name, value]) => `${name}=${value}`)
