@@ -1,6 +1,5 @@
 import { Teams } from '@/actions/getTeamsForCoach';
 import Link from 'next/link';
-import { Button, Image } from 'react-bootstrap';
 
 type ComponentProps = {
   coach_id: string;
@@ -8,7 +7,7 @@ type ComponentProps = {
   active?: string;
 };
 
-export async function Picker({ coach_id, teams, active }: ComponentProps) {
+export function Picker({ coach_id, teams, active }: ComponentProps) {
   const selected = parseInt(active || '-1');
   return (
     <ul className="nav nav-tabs" role="tablist">
@@ -32,5 +31,3 @@ export async function Picker({ coach_id, teams, active }: ComponentProps) {
     </ul>
   );
 }
-
-export namespace Picker {}
