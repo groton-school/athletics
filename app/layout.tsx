@@ -1,4 +1,5 @@
 import { SignIn } from '@/components/Auth/SignIn';
+import { User } from '@/components/Auth/User';
 import { Bootstrap } from '@/components/Bootstrap';
 import { auth } from '@/lib/auth';
 import type { Metadata } from 'next';
@@ -18,7 +19,10 @@ export default async function RootLayout(props: Properties) {
   return (
     <html lang="en">
       <body>
-        <Container>
+        <Container className="mt-3 mb-3 position-relative">
+          <Suspense>
+            <Avatar />
+          </Suspense>
           <Suspense>
             <AuthenticatedContent {...props} />
           </Suspense>
@@ -27,6 +31,18 @@ export default async function RootLayout(props: Properties) {
       </body>
     </html>
   );
+}
+
+async function Avatar() {
+  const session = await auth();
+  if (session?.user) {
+    return (
+      <h6 className="position-absolute top-0 end-0 mt-1 me-3">
+        <User />
+      </h6>
+    );
+  }
+  return <></>;
 }
 
 async function AuthenticatedContent({ children }: Properties) {
