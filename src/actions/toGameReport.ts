@@ -39,7 +39,7 @@ export async function toGameReport(
         ?.map((o) => o.opponent)
         .join(', ')
         .replace(/, ([^,]+)$/, ' & $1') || event.athletic_opponent
-    }`,
+    }${event.event_type_id === 21 ? ' (Scrimmage)' : ''}`,
     outcome: `${
       event.game_score_us !== null
         ? `${[
