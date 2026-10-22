@@ -1,5 +1,6 @@
 'use client';
 
+import { getEvent } from '@/actions/getEvent';
 import { getReport } from '@/actions/getReport';
 import { updateReport } from '@/actions/updateReport';
 import { useActionState, useState } from 'react';
@@ -16,7 +17,9 @@ export function Report({ report }: ComponentProps) {
     async (state: unknown, form: FormData) => {
       setEditing(false);
       updateReport(report, state, form).then(() => {
-        getReport(report.event).then(setValue);
+        getEvent(report.event.id).then((event) =>
+          getReport(event).then(setValue)
+        );
       });
     },
     null
