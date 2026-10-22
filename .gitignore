@@ -5,3 +5,4 @@
 **/deploy/
 **/next-env.d.ts
 **/node_modules/
+/.nx/

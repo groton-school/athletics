@@ -53,7 +53,6 @@
     "@qui-cli/structured": "catalog:dev",
     "@tsconfig/node-lts": "catalog:dev",
     "del-cli": "catalog:dev",
-    "eslint-config-next": "catalog:dev",
     "npm-run-all": "catalog:dev",
     "typescript": "catalog:dev"
   }

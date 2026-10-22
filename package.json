@@ -1,11 +1,30 @@
 {
   "name": "@groton/athletics",
   "version": "0.0.0",
+  "private": true,
+  "homepage": "https://github.com/groton-school/athletics#readme",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:groton-school/athletics.git"
+  },
+  "author": {
+    "name": "Seth Battis",
+    "email": "sbattis@groton.org"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "run-s build:*",
+    "build:compile": "lerna run build",
+    "build:paths": "monorepo-package-paths -f --author --homepage --repository"
+  },
   "devDependencies": {
     "@battis/commit": "^0.0.11",
     "@battis/eslint": "^3.0.7",
     "@battis/monorepo": "^1.0.0",
-    "@battis/prettier": "^2.0.11"
+    "@battis/prettier": "^2.0.11",
+    "eslint-config-next": "16.3.2",
+    "lerna": "^9.0.7",
+    "npm-run-all": "catalog:dev"
   },
   "packageManager": "pnpm@12.15.0+sha512.b3951d6d6ff4a9f13dc7cf56cd28d2b8eb37dbcc9c68e52e1e1191873ea9f82a017287ab50baadc5ccc494f036c67c0e47eb13608c2fa36f47711b61ea128e61"
 }
