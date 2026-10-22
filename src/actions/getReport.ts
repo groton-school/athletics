@@ -9,6 +9,8 @@ export interface Report {
   summary?: string;
 }
 
+// TODO Track & Field _does_ use decimal points for scores
+// Issue URL: https://github.com/groton-school/veracross-athletic-feeds/issues/3
 export async function getReport(
   event: Veracross.Data.Events.Athletics.Athletics
 ): Promise<Report> {
@@ -22,7 +24,11 @@ export async function getReport(
   }
   return {
     event,
-    title: `${event.team_description.replace(/^([^:]+: )(.*)$/, '$2')} ${
+    title: `${
+      event.description && !/^[A-Z0-9\-]+:/.test(event.description)
+        ? `${event.description}: `
+        : ''
+    }${event.team_description.replace(/^([^:]+: )(.*)$/, '$2')} ${
       event.home_away_id === 1
         ? 'vs.'
         : event.destination_organization === event.athletic_opponent
@@ -33,7 +39,7 @@ export async function getReport(
         ?.map((o) => o.opponent)
         .join(', ')
         .replace(/, ([^,]+)$/, ' & $1') || event.athletic_opponent
-    }`,
+    }${event.event_type_id === 21 ? ' (Scrimmage)' : ''}`,
     outcome: `${
       event.game_score_us !== null
         ? `${[
