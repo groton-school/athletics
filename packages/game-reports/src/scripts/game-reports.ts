@@ -39,10 +39,12 @@ export async function run() {
 
   // TOOO enable auto-billing
   // TODO enable secret manager and publish credentials
+  // Issue URL: https://github.com/groton-school/athletics/issues/14
   // TODO create service account with secret manager accessor and secret manager version manager permissions
   // TODO write service account email to SERVICE_ACCOUNT
   // TODO generate access-verifier pairs
   // TODO write PUBLIC_URL to env
+  // Issue URL: https://github.com/groton-school/athletics/issues/13
   await gcloud.batch.run.deployService({
     defaultName: 'Game Reports',
     serviceName: (await Env.get({ key: 'SERVICE_NAME' })) || 'game-reports',

@@ -5,7 +5,9 @@ import { Log } from '@qui-cli/log';
 
 export async function run() {
   // TODO store ADMIN_URL
+  // Issue URL: https://github.com/groton-school/athletics/issues/7
   // TODO write ADMIN_SERVICE_NAME
+  // Issue URL: https://github.com/groton-school/athletics/issues/6
   const { service } = await gcloud.batch.run.deployService({
     defaultName: 'Athletic Feeds',
     serviceName: (await Env.get({ key: 'ADMIN_SERVICE_NAME' })) || 'admin',
@@ -26,6 +28,7 @@ export async function run() {
   });
 
   // TODO only needed on first run
+  // Issue URL: https://github.com/groton-school/athletics/issues/5
   const region = service.metadata.labels['cloud.googleapis.com/location'];
   await gcloud.shell.gcloud(
     `run services add-iam-policy-binding ${service.metadata.name}`,
