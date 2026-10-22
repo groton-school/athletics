@@ -2,6 +2,17 @@
   "name": "@groton/game-reports",
   "version": "0.0.0",
   "private": true,
+  "homepage": "https://github.com/groton-school/athletics/tree/main/packages/game-reports#readme",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:groton-school/athletics.git",
+    "directory": "packages/game-reports"
+  },
+  "license": "GPL-3.0-only",
+  "author": {
+    "name": "Seth Battis",
+    "email": "sbattis@groton.org"
+  },
   "type": "module",
   "scripts": {
     "dev": "next dev",
@@ -16,7 +27,9 @@
     "service:game-reports": "./scripts/deploy gameReports -v ./deploy",
     "gcp-build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prepack": "run-s build",
+    "release": "commit-and-tag-version --noBumpWhenEmptyChanges"
   },
   "dependencies": {
     "@battis/lazy-secrets": "catalog:prod",

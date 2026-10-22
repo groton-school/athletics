@@ -3,7 +3,17 @@
   "version": "0.0.0",
   "private": "true",
   "description": "ICS and RSS feeds for athletic events from Veracross",
+  "homepage": "https://github.com/groton-school/athletics/tree/main/packages/athletic-feeds#readme",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:groton-school/athletics.git",
+    "directory": "packages/athletic-feeds"
+  },
   "license": "GPL-3.0-only",
+  "author": {
+    "name": "Seth Battis",
+    "email": "sbattis@groton.org"
+  },
   "type": "module",
   "scripts": {
     "dev": "next dev",
@@ -18,7 +28,9 @@
     "service:athletic-feeds": "./scripts/deploy athleticFeeds -v ./deploy",
     "gcp-build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prepack": "run-s build",
+    "release": "commit-and-tag-version --noBumpWhenEmptyChanges"
   },
   "dependencies": {
     "@battis/lazy-secrets": "catalog:prod",

@@ -7,6 +7,7 @@
     "type": "git",
     "url": "git@github.com:groton-school/athletics.git"
   },
+  "license": "GPL-3.0-only",
   "author": {
     "name": "Seth Battis",
     "email": "sbattis@groton.org"
@@ -15,7 +16,9 @@
   "scripts": {
     "build": "run-s build:*",
     "build:compile": "lerna run build",
-    "build:paths": "monorepo-package-paths -f --author --homepage --repository"
+    "build:paths": "monorepo-package-paths -f --author --homepage --repository",
+    "release": "learn run release",
+    "service": "lerna run service"
   },
   "devDependencies": {
     "@battis/commit": "^0.0.11",

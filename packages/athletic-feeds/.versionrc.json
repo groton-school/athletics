@@ -1,0 +1,5 @@
+{
+  "path": ".",
+  "tag-prefix": "athletic-feeds/",
+  "releaseCommitMessageFormat": "chore(athletic-feeds): @groton/athletic-feeds@{{currentTag}}"
+}
