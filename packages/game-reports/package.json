@@ -4,9 +4,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "clean": "run-s clean:*",
-    "clean:next": "del ./next",
-    "clean:scripts": "del ./build",
     "dev": "next dev",
     "build": "run-s build:*",
     "build:clean": "del ./build",
