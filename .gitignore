@@ -1,8 +1,9 @@
 **/*.log
 **/.env*
 **/.next/
+**/.turbo/
 **/build/
-**/deploy/
+**/dist/
 **/next-env.d.ts
 **/node_modules/
-/.nx/
+/out/

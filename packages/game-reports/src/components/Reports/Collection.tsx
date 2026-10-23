@@ -1,4 +1,4 @@
-import { Report } from '@/actions/getReport';
+import { Report } from '@groton/report-actions';
 import { Button, Image, Table } from 'react-bootstrap';
 import { LocaleDateTime } from '../LocaleDateTime';
 import { Report as View } from './Report';

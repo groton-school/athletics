@@ -1,9 +1,9 @@
 'use server';
 
-import { Veracross } from '@/lib/Veracross';
+import * as Veracross from '@groton/veracross-api';
 import z from 'zod';
 import { zfd } from 'zod-form-data';
-import { Report } from './getReport';
+import { Report } from './getReport.js';
 
 const schema = zfd
   .formData({

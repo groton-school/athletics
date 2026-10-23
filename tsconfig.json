@@ -1,8 +1,8 @@
 {
   "extends": "@tsconfig/node-lts/tsconfig.json",
   "compilerOptions": {
-    "rootDir": "./src/scripts",
+    "rootDir": "./src",
     "outDir": "./build"
   },
-  "include": ["./src/scripts"]
+  "include": ["./src"]
 }

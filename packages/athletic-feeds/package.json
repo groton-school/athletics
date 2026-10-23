@@ -1,7 +1,6 @@
 {
   "name": "@groton/athletic-feeds",
-  "version": "0.0.0",
-  "private": "true",
+  "version": "0.0.1",
   "description": "ICS and RSS feeds for athletic events from Veracross",
   "homepage": "https://github.com/groton-school/athletics/tree/main/packages/athletic-feeds#readme",
   "repository": {
@@ -16,30 +15,16 @@
   },
   "type": "module",
   "scripts": {
+    "build": "next build",
     "dev": "next dev",
-    "build": "run-s build:*",
-    "build:clean": "del ./build",
-    "build:scripts": "tsc -p ./tsconfig.scripts.json",
-    "build:compile": "next build",
-    "service": "run-s service:*",
-    "service:clean": "del ./deploy",
-    "service:build": "run-s build",
-    "service:prune": "pnpm -F @groton/athletic-feeds deploy --prod ./deploy",
-    "service:athletic-feeds": "./scripts/deploy athleticFeeds -v ./deploy",
-    "gcp-build": "next build",
-    "start": "next start",
     "lint": "eslint",
-    "prepack": "run-s build",
-    "release": "commit-and-tag-version --noBumpWhenEmptyChanges"
+    "release": "commit-and-tag-version --noBumpWhenEmptyChanges",
+    "start": "next start"
   },
   "dependencies": {
     "@battis/lazy-secrets": "catalog:prod",
+    "@groton/report-actions": "workspace:",
     "@groton/veracross-api": "catalog:prod",
-    "@types/luxon": "^3.7.6",
-    "@types/node": "catalog:prod",
-    "@types/react": "catalog:prod",
-    "@types/react-dom": "catalog:prod",
-    "@types/rss": "^0.0.32",
     "ics": "^3.12.1",
     "luxon": "^3.7.2",
     "next": "catalog:prod",
@@ -49,20 +34,13 @@
     "rss": "^1.2.2"
   },
   "devDependencies": {
-    "@1password/sdk": "catalog:dev",
-    "@battis/descriptive-types": "catalog:dev",
-    "@battis/partly-gcloudy": "catalog:dev",
     "@battis/workspace": "catalog:dev",
-    "@qui-cli/colors": "catalog:dev",
-    "@qui-cli/core": "catalog:dev",
-    "@qui-cli/env": "catalog:dev",
-    "@qui-cli/log": "catalog:dev",
-    "@qui-cli/plugin": "catalog:dev",
-    "@qui-cli/structured": "catalog:dev",
-    "@tsconfig/node-lts": "catalog:dev",
+    "@types/luxon": "^3.7.6",
+    "@types/node": "catalog:dev",
+    "@types/react": "catalog:dev",
+    "@types/react-dom": "catalog:dev",
+    "@types/rss": "^0.0.32",
     "babel-plugin-react-compiler": "1.0.0",
-    "del-cli": "catalog:dev",
-    "npm-run-all": "catalog:dev",
     "typescript": "catalog:dev"
   }
 }

@@ -1,10 +1,9 @@
 import { getAthleticEvents } from '@/actions/getAthleticEvents';
-import { toGameReport } from '@/actions/toGameReport';
 import { currentAcademicYear } from '@/lib/currentAcademicYear';
 import { toISODateTime } from '@/lib/toISODateTime';
+import { getReport } from '@groton/report-actions';
 import ics from 'ics';
 import { DateTime, Interval } from 'luxon';
-import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 
 /*
@@ -27,7 +26,7 @@ export async function GET() {
     const { error, value } = ics.createEvents(
       (
         await Promise.all(
-          (await getAthleticEvents(currentAcademicYear())).map(toGameReport)
+          (await getAthleticEvents(currentAcademicYear())).map(getReport)
         )
       ).map((report) => ({
         title: `${report.title}${report.outcome ? ` (${report.event.game_outcome_description}: ${report.outcome})` : ''}`,

@@ -1,8 +1,7 @@
 'use client';
 
 import { getEvent } from '@/actions/getEvent';
-import { getReport } from '@/actions/getReport';
-import { updateReport } from '@/actions/updateReport';
+import { getReport, updateReport } from '@groton/report-actions';
 import { useActionState, useState } from 'react';
 import { Button, Form, Image, Spinner } from 'react-bootstrap';
 import { Pencil } from 'react-bootstrap-icons';

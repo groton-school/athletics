@@ -1,7 +1,7 @@
 import { getAthleticEvents } from '@/actions/getAthleticEvents';
-import { toGameReport } from '@/actions/toGameReport';
 import { currentAcademicYear } from '@/lib/currentAcademicYear';
 import { toISODateTime } from '@/lib/toISODateTime';
+import { getReport } from '@groton/report-actions';
 import { DateTime, Interval } from 'luxon';
 import { NextResponse } from 'next/server';
 import RSS from 'rss';
@@ -35,7 +35,7 @@ export async function GET() {
       await Promise.all(
         (await getAthleticEvents(currentAcademicYear()))
           .filter((event) => event.game_score_us !== null)
-          .map(toGameReport)
+          .map(getReport)
       )
     ).forEach(async (report) =>
       feed.item({

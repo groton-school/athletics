@@ -1,8 +1,8 @@
 'use server';
 
-import { Veracross } from '@/lib/Veracross';
+import * as Veracross from '@groton/veracross-api';
 
-interface GameReport {
+export interface Report {
   readonly event: Veracross.Data.Events.Athletics.Athletics;
   title: string;
   outcome?: string;
@@ -10,10 +10,9 @@ interface GameReport {
 }
 
 // TODO Track & Field _does_ use decimal points for scores
-// Issue URL: https://github.com/groton-school/veracross-athletic-feeds/issues/3
-export async function toGameReport(
+export async function getReport(
   event: Veracross.Data.Events.Athletics.Athletics
-): Promise<GameReport> {
+): Promise<Report> {
   let opponents:
     | Veracross.Data.Events.AthleticsOpponents.AthleticsOpponentCollection
     | undefined = undefined;

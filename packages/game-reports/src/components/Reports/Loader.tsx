@@ -1,5 +1,5 @@
 import { getEventsForTeam } from '@/actions/getEventsForTeam';
-import { getReport } from '@/actions/getReport';
+import { getReport } from '@groton/report-actions';
 import { connection } from 'next/server';
 import { Collection } from './Collection';
 

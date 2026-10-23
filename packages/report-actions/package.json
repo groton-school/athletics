@@ -1,0 +1,38 @@
+{
+  "name": "@groton/report-actions",
+  "version": "0.0.1",
+  "homepage": "https://github.com/groton-school/athletics/tree/main/packages/report-actions#readme",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:groton-school/athletics.git",
+    "directory": "packages/report-actions"
+  },
+  "author": {
+    "name": "Seth Battis",
+    "email": "sbattis@groton.org"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "run-s build:*",
+    "build:clean": "del ./dist",
+    "build:compile": "tsc",
+    "start": "echo 'noop'"
+  },
+  "dependencies": {
+    "zod": "^4.6.7",
+    "zod-form-data": "^3.0.4"
+  },
+  "devDependencies": {
+    "@battis/workspace": "catalog:dev",
+    "@tsconfig/node-lts": "catalog:dev",
+    "@types/node": "catalog:dev",
+    "del-cli": "catalog:dev",
+    "npm-run-all": "catalog:dev",
+    "typescript": "catalog:dev"
+  },
+  "peerDependencies": {
+    "@groton/veracross-api": "catalog:prod"
+  }
+}

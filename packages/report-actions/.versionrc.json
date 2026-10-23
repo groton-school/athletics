@@ -1,0 +1,5 @@
+{
+  "path": ".",
+  "tag-prefix": "report-actions/",
+  "releaseCommitMessageFormat": "chore(report-actions): @groton/report-actions@{{currentTag}}"
+}

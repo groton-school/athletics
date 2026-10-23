@@ -22,27 +22,17 @@ catalogs:
   prod:
     '@battis/lazy-secrets': ^1.1.2
     '@groton/veracross-api': ^0.0.13
-    '@types/node': ^24.19.2
-    '@types/react': ^19.3.0
-    '@types/react-dom': ^19.3.0
     next: ^16.4.2
     openid-client: ^6.8.8
     react: ^19.3.1
     react-dom: 19.2.8
     temporal-polyfill: ^1.0.6
   dev:
-    '@1password/sdk': ^0.5.0
-    '@battis/descriptive-types': ^0.3.1
-    '@battis/partly-gcloudy': ^3.4.5
-    '@battis/typescript-tricks': ^0.8.7
     '@battis/workspace': ^0.0.12
-    '@qui-cli/colors': ^3.2.5
-    '@qui-cli/core': ^7.1.0
-    '@qui-cli/env': ^5.3.0
-    '@qui-cli/log': ^4.0.5
-    '@qui-cli/plugin': 4.2.0
-    '@qui-cli/structured': ^2.0.7
     '@tsconfig/node-lts': ^24.0.1
-    del-cli: ^7.0.0
+    '@types/node': ^24.19.2
+    '@types/react': ^19.3.0
+    '@types/react-dom': ^19.3.0
+    del-cli: ^8.0.1
     npm-run-all: ^4.1.5
-    typescript: ^5.9.3
+    typescript: ^7.0.2
