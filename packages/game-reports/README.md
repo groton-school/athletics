@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# @groton/athletic-feeds
 
-## Getting Started
+Coach-accessible game summaries and score reporting
 
-First, run the development server:
+## Install
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Requires a Google Cloud Project with billing, the Secret Manager API enabled, and OAuth consent configured.
+
+Create a new web application OAuth client with authorized redirect URI `<GCP Cloud Run public URL>/api/auth/callback/google` and scopes `.../auth/userinfo.email` and `.../auth/userinfo.profile`
+
+Create two secrets: `AUTH_GOOGLE_ID`, `AUTH_GOOGLE_SECRET`, `VERACROSS_CREDENTIALS` and `VERACROSS_REFRESH_TOKEN`.
+
+Put the OAuth client ID and secret in `AUTH_GOOGLE_ID` and `AUTH_GOOGLE_SECRET`.
+
+Give the default compute service account IAM roles `Secret Manager Secret Accessor` for the project and `Secret Manager Secret Version Manager` for the `VERACROSS_REFRESH_TOKEN` secret.
+
+Create a new OAuth App in your Veracross instance with the scopes:
+
+- `events.athletics:list`
+- `events.athletics_opponents:list`
+
+Populate `VERACROSS_CREDENTIALS` with the JSON value:
+
+```json
+{
+  "school_route": "example",
+  "client_id": "<OAuth Client ID from Veracross instance>",
+  "client_secret": "<Oauth Client Secret from Veracross instance",
+  "redirect_uri": "<GCP Cloud Run public URL>/oauth2/veracross/redirect"
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Deploy code to Google Cloud Run:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+git clone https://github.com/groton-school/athletics.git path/to/project
+cd path/to/project
+pnpm install
+pnpm run game-reports
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Usage
 
-## Learn More
+`<GCP Cloud Run public URL>/feed/rss` provides an ATOM RSS feed suitable for digital signage.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`<GCP Cloud Run public URL>/feed/ics` provides an ICS webcal feed of athletic competitions with reported scores, summaries, locations.

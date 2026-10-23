@@ -1,19 +1,10 @@
-# @groton/veracross-athletic-feeds
+# @groton/athletic-feeds
 
 ICS and RSS feeds for athletic events from Veracross
-
-[![npm version](https://badge.fury.io/js/@groton%2Fveracross-athletic-feeds.svg)](https://badge.fury.io/js/@groton%2Fveracross-athletic-feeds)
 
 ## Install
 
 Requires a Google Cloud Project with billing and the Secret Manager API enabled.
-
-```bash
-git clone https://github.com/groton-school/veracross-athletic-feeds.git path/to/project
-cd path/to/project
-pnpm install
-pnpm run deploy
-```
 
 Create two secrets: `VERACROSS_CREDENTIALS` and `VERACROSS_REFRESH_TOKEN`.
 
@@ -33,6 +24,15 @@ Populate `VERACROSS_CREDENTIALS` with the JSON value:
   "client_secret": "<Oauth Client Secret from Veracross instance",
   "redirect_uri": "<GCP Cloud Run public URL>/oauth2/veracross/redirect"
 }
+```
+
+Deploy code to Google Cloud Run:
+
+```bash
+git clone https://github.com/groton-school/athletics.git path/to/project
+cd path/to/project
+pnpm install
+pnpm run athletic-feeds
 ```
 
 ## Usage
