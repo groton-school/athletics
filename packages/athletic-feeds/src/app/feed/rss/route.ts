@@ -17,6 +17,14 @@ const CACHE_LIFETIME = 15; // minutes
 let timestamp = DateTime.now();
 let cached: string | undefined = undefined;
 
+/**
+ * Carousel ticket #25999
+ * Ampersands without surrounding spaces break HTML rendering (misinterpreted as incomplete HTML entities)
+ */
+function carouselPreformat(text: string) {
+  return text.replaceAll(/([^ ])&([^ ])/g, '$1 & $2');
+}
+
 export async function GET() {
   if (
     !cached ||
@@ -42,8 +50,8 @@ export async function GET() {
         date: toISODateTime(report.event.start_date, report.event.start_time),
         url: 'https://www.groton.org/athletics',
         categories: [report.event.game_outcome_description],
-        title: report.title,
-        description: report.outcome || ''
+        title: carouselPreformat(report.title),
+        description: report.outcome || '',
         guid: `${report.event.id}`
       })
     );
