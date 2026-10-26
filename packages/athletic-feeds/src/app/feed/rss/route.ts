@@ -44,6 +44,7 @@ export async function GET() {
         categories: [report.event.game_outcome_description],
         title: report.title,
         description: report.outcome || ''
+        guid: `${report.event.id}`
       })
     );
 
