@@ -25,7 +25,7 @@ export async function GET() {
   ) {
     const feed = new RSS({
       title: 'Athletic Scores',
-      feed_url: 'https://athletics.groton.org/feed/rss',
+      feed_url: `${process.env.PUBLIC_URL}/feed/rss`,
       site_url: 'https://www.groton.org/athletics',
       language: 'en',
       pubDate: new Date(),
