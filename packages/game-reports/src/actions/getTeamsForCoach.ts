@@ -16,7 +16,12 @@ export async function getTeamsForCoach(coach_id: string) {
 
   return await Promise.all(
     await Veracross.Data.Athletics.Coaches.list({
-      query: { coach_id: parseInt(coach_id), school_year }
+      query: {
+        coach_id: parseInt(coach_id),
+        school_year,
+        // @ts-expect-error 2322
+        role: '10,11'
+      }
     })
   );
 }
