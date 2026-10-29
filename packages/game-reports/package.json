@@ -23,7 +23,6 @@
   },
   "dependencies": {
     "@battis/lazy-secrets": "catalog:prod",
-    "@groton/colors": "groton-school/colors#v0.4.3",
     "@groton/report-actions": "workspace:",
     "@groton/veracross-api": "catalog:prod",
     "bootstrap": "^5.3.8",
