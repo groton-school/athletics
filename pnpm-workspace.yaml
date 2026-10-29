@@ -22,7 +22,7 @@ catalogs:
   prod:
     '@battis/lazy-secrets': ^1.1.2
     '@groton/veracross-api': ^0.0.13
-    next: ^16.4.2
+    next: ^16.4.3
     openid-client: ^6.8.8
     react: ^19.3.1
     react-dom: 19.2.8
